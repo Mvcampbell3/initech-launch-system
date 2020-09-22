@@ -1,0 +1,49 @@
+.navigation {
+    background-color: #343C44;
+    width: 100%;
+}
+
+.logo  {
+    display: flex;
+    width: 75px;
+    height: 75px;
+    margin: 0;
+    position: relative;
+}
+
+.logo img:hover{
+    transform: rotate(90deg);
+    transition: 1.5s;
+}
+
+ul{
+    list-style:none;
+    display: flex;
+    font-size: 20px;
+    margin: 0;
+    padding: 10px;
+}
+
+ul li{   
+    margin: 15px;
+}
+
+ul a{
+    color: #fff;
+    text-decoration: none;
+}
+
+ul a:hover {
+    text-decoration: underline;
+    text-decoration-color: #E3BD1C; 
+}
+
+.dropdown-content {
+    display:none;
+    position: absolute;
+}
+
+
+
+
+
