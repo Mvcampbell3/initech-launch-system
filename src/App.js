@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 
@@ -21,11 +21,32 @@ import Store from './pages/Store';
 */
 
 function App() {
+
+  const [user, setUser] = useState(false);
+  const [displayError, setDisplayError] = useState(false);
+  const [errorMessages, setErrorMessages] = useState([]);
+
+  const setErrors = (messages) => {
+    setDisplayError(true);
+    setErrorMessages(messages);
+  }
+
+  const clearErrors = () => {
+    setDisplayError(false);
+    setErrorMessages([]);
+  }
+
   return (
     <Router>
       <Switch>
         <Route exact path='/' render={props => <Landing {...props} />} />
-        <Route exact path='/store' render={props => <Store {...props} />} />
+        <Route exact path='/store' render={props => <Store
+          {...props} user={user}
+          displayError={displayError}
+          errorMessages={errorMessages}
+          setErrors={setErrors}
+          clearErrors={clearErrors}
+        />} />
       </Switch>
     </Router>
   );
