@@ -1,39 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./Nav.css"
 
 const Nav = () => {
+
+    const [menuToggle, setMenuToggle] = useState(false);
+
     return (
-        <div className='navigation'>
-            <div className="logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" alt="logo"/>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li>
-                        <a href="/">Rockets</a>
-                        <div className="dropdown-content">
-                            <ul className="dropdown-list">
-                                <li className="dropdown-item">
-                                    <a href="/">Rocket Stuff</a>
-                                </li>
-                                <li className="dropdown-item">
-                                    <a href="/">Rocket Stuff</a>
-                                </li>
-                                <li className="dropdown-item">
-                                    <a href="/">Rocket Stuff</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="/">Rovers</a>
-                    </li>
-                    <li>
-                        <a href="/">Pricing</a>
-                    </li>
-                </ul>
+        <div className="container">
+            <div className={`navigation ${menuToggle ? "change" : ""}`}  onClick={() => setMenuToggle(!menuToggle)}>
+                <div className="bar1"></div>
+                <div className="bar2"></div>
+                <div className="bar3"></div>
             </div>
         </div>
-    )
+
+    );
 }
 
 export default Nav
+
