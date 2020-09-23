@@ -13,7 +13,7 @@
 
 .opac-holder.opac-up {
   background-color: rgba(29, 29, 29, 0.55);
-  transition: background-color 2s;
+  transition: background-color 1s;
   transition-timing-function: ease-in-out;
 }
 
@@ -23,7 +23,7 @@
   display: grid;
   place-items: center;
   min-height: 100vh;
-  animation: opac-load 2s forwards ease-in-out;
+  animation: opac-load 1s forwards ease-in-out;
   padding: 15vh 0;
 }
 

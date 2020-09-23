@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 
@@ -21,11 +21,31 @@ import Store from './pages/Store';
 */
 
 function App() {
+
+  const [displayError, setDisplayError] = useState(true);
+  const [errorMessages, setErrorMessages] = useState([{ code: 123, message: 'This is a test error message from App.js' }]);
+
+  const setErrors = (messages) => {
+    setDisplayError(true);
+    setErrorMessages(messages);
+  }
+
+  const clearErrors = () => {
+    setDisplayError(false);
+    setErrorMessages([]);
+  }
+
   return (
     <Router>
       <Switch>
         <Route exact path='/' render={props => <Landing {...props} />} />
-        <Route exact path='/store' render={props => <Store {...props} />} />
+        <Route exact path='/store' render={props => <Store
+          {...props}
+          displayError={displayError}
+          errorMessages={errorMessages}
+          setErrors={setErrors}
+          clearErrors={clearErrors}
+        />} />
       </Switch>
     </Router>
   );
