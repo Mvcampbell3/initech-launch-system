@@ -10,8 +10,8 @@ const ErrorDisplay = (props) => {
           <h3 className="error-title">Opps! Something went wrong...</h3>
         </div>
         <div className="error-body">
-          {props.errorMessages.map(message => (
-            <p>{message.message}</p>
+          {props.errorMessages.map((message, i) => (
+            <p key={i} className='message-text'>{message.message}</p>
           ))}
         </div>
         <div className="error-action">

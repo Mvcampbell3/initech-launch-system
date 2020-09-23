@@ -22,9 +22,8 @@ import Store from './pages/Store';
 
 function App() {
 
-  const [user, setUser] = useState(false);
-  const [displayError, setDisplayError] = useState(false);
-  const [errorMessages, setErrorMessages] = useState([]);
+  const [displayError, setDisplayError] = useState(true);
+  const [errorMessages, setErrorMessages] = useState([{ code: 123, message: 'This is a test error message from App.js' }]);
 
   const setErrors = (messages) => {
     setDisplayError(true);
@@ -41,7 +40,7 @@ function App() {
       <Switch>
         <Route exact path='/' render={props => <Landing {...props} />} />
         <Route exact path='/store' render={props => <Store
-          {...props} user={user}
+          {...props}
           displayError={displayError}
           errorMessages={errorMessages}
           setErrors={setErrors}
