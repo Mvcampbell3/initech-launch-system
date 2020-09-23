@@ -1,3 +1,17 @@
 body {
-  background-color: #BCBCBB;
+  background-color: #bcbcbb;
+}
+
+.main-btn {
+  border: 0;
+  background-color: white;
+  color: black;
+  padding: 14px 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.main-btn:focus {
+  outline: 0;
 }
