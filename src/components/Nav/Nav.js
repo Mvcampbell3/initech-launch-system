@@ -3,6 +3,7 @@ import "./Nav.css"
 
 const Nav = () => {
 
+    
     const [menuToggle, setMenuToggle] = useState(false);
 
     return (
@@ -13,6 +14,7 @@ const Nav = () => {
                 <div className="bar3"></div>
             </div>
         </div>
+        
 
     );
 }

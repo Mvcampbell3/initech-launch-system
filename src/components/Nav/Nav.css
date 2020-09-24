@@ -1,0 +1,42 @@
+.container {
+  background-color: #343C44;
+  width: 100%;
+  height: 45px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.navigation {
+  color: whitesmoke;
+  display: inline;
+  cursor: pointer;
+  position: relative;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+  
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+  background-color: #F4C719;
+}
+  
+.change .bar2 {opacity: 0;}
+  
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+  background-color: #F4C719;
+}
+
+
+
+
+
+
