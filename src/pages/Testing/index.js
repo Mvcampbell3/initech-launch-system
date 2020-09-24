@@ -16,7 +16,6 @@ const Testing = (props) => {
   const auth = firebase.auth();
 
   useEffect(() => {
-    console.log('loaded');
     db.ref('test').on('value', (snap) => {
       console.log(snap.val())
     })

@@ -21,10 +21,8 @@ import Testing from './pages/Testing';
 */
 
 function App() {
-  console.log('hello');
-  console.log(process.env.REACT_APP_API_KEY)
-  const [displayError, setDisplayError] = useState(true);
-  const [errorMessages, setErrorMessages] = useState([{ code: 123, message: 'This is a test error message from App.js' }]);
+  const [displayError, setDisplayError] = useState(false);
+  const [errorMessages, setErrorMessages] = useState([]);
 
   const setErrors = (messages) => {
     setDisplayError(true);
