@@ -5,7 +5,7 @@ import './App.css';
 // pages
 import Landing from './pages/Landing';
 import Store from './pages/Store';
-
+import Testing from './pages/Testing';
 // components
 
 /*
@@ -21,9 +21,8 @@ import Store from './pages/Store';
 */
 
 function App() {
-
-  const [displayError, setDisplayError] = useState(true);
-  const [errorMessages, setErrorMessages] = useState([{ code: 123, message: 'This is a test error message from App.js' }]);
+  const [displayError, setDisplayError] = useState(false);
+  const [errorMessages, setErrorMessages] = useState([]);
 
   const setErrors = (messages) => {
     setDisplayError(true);
@@ -39,6 +38,7 @@ function App() {
     <Router>
       <Switch>
         <Route exact path='/' render={props => <Landing {...props} />} />
+        <Route exact path='/test' render={props => <Testing {...props} />} />
         <Route exact path='/store' render={props => <Store
           {...props}
           displayError={displayError}
