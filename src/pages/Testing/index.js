@@ -40,11 +40,11 @@ const Testing = (props) => {
             products_arr.push({ ...prod_db.val()[pd_id], id: pd_id })
           }
           console.log(products_arr)
-          const new_products = [...products_arr].filter(prod => prod.misson === 'LEO');
+          // const new_products = [...products_arr].filter(prod => prod.misson === 'LEO');
         })
       })
     })
-  }, [auth])
+  }, [auth, db]);
 
   const makeStuff = () => {
     console.log(user.current);
