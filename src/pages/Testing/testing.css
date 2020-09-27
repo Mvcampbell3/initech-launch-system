@@ -1,0 +1,19 @@
+.testing-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: white;
+  padding-top: 2em;
+}
+
+.button-holder {
+  display: flex;
+  width: 80%;
+  margin: 0 auto 2em;
+  padding: 50px;
+  justify-content: space-evenly;
+}
+
+.input-wrapper {
+  width: 350px;
+  margin: 0 auto;
+}

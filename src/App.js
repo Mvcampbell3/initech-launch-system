@@ -15,8 +15,7 @@ import Testing from './pages/Testing';
   useState hooks and useEffect hooks. We are also going to use some useMemo and useRef to hold on to things we need to
   interact with and not cause re-rendering. It's gonna be fun!
 
-  After we get some more basic front-end stuff done, we will jump into firebase interactions and stripe. When we get there, it might be
-  better to get together or have a zoom call to talk about what we are going to be doing.
+  After we get some more basic front-end stuff done, we will jump into firebase interactions and stripe. When we get there, it might be better to get together or have a zoom call to talk about what we are going to be doing.
 
 */
 
