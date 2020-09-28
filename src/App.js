@@ -5,7 +5,6 @@ import './App.css';
 // pages
 import Landing from './pages/Landing';
 import Store from './pages/Store';
-import Testing from './pages/Testing';
 import Login from './pages/Login';
 
 // components
@@ -14,21 +13,10 @@ import Login from './pages/Login';
 // Firebase for App Auth
 import { FirebaseContext } from './utils/firebase';
 
-/*
-
-  We are going to be having the majority of important life-cycle state live inside of App.js, things like
-  user status, loading, error-management, and product holding. The majority of these will be part of a bunch of 
-  useState hooks and useEffect hooks. We are also going to use some useMemo and useRef to hold on to things we need to
-  interact with and not cause re-rendering. It's gonna be fun!
-
-  After we get some more basic front-end stuff done, we will jump into firebase interactions and stripe. When we get there, it might be better to get together or have a zoom call to talk about what we are going to be doing.
-
-*/
-
 function App() {
   const [displayError, setDisplayError] = useState(false);
   const [errorMessages, setErrorMessages] = useState([]);
-  const [userDB, setUserDB] = useState({});
+  const [userDB, setUserDB] = useState({ loggedIn: false });
   const [userID, setUserID] = useState('');
   const [currentCart, setCurrentCart] = useState([]);
   const [products, setProducts] = useState([]);
@@ -57,6 +45,9 @@ function App() {
         } else {
           console.log('does not have cart');
         }
+      }, (err) => {
+        console.log('error')
+        console.log(err);
       })
     }
   }, [userID, db])
@@ -81,6 +72,7 @@ function App() {
   }, [db])
 
   const setErrors = (messages) => {
+    console.log(messages);
     setDisplayError(true);
     setErrorMessages(messages);
   }
@@ -94,7 +86,6 @@ function App() {
     <Router>
       <Switch>
         <Route exact path='/' render={props => <Landing {...props} />} />
-        <Route exact path='/test' render={props => <Testing {...props} />} />
         <Route exact path='/store' render={props => <Store
           {...props}
           displayError={displayError}

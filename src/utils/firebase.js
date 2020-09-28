@@ -1,5 +1,8 @@
-import React, { createContext } from 'react'
-import app from 'firebase/app'
+import React, { createContext } from 'react';
+import app from 'firebase/app';
+
+import 'firebase/auth';
+import 'firebase/database';
 
 const FirebaseContext = createContext(null)
 export { FirebaseContext }

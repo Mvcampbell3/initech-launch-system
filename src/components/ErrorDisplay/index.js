@@ -3,6 +3,7 @@ import './errorDisplay.css';
 import Button from '@material-ui/core/Button';
 
 const ErrorDisplay = (props) => {
+
   return (
     <div className="error-container">
       <div className="error-wrapper">
