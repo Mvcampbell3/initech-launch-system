@@ -14,6 +14,7 @@ const Login = (props) => {
   const [name, setName] = useState('');
   const [actionLogin, setActionLogin] = useState(true);
   const [redirectStore, setRedirectStore] = useState(false);
+  const [disableButton, setDisableButton] = useState(false);
   const firebase = useContext(FirebaseContext);
   const auth = firebase.auth();
   const db = firebase.database();
@@ -21,6 +22,7 @@ const Login = (props) => {
   const handleSignup = () => {
     if (!name) {
       props.setErrors([{ code: '404', message: 'Please enter a name' }]);
+      setDisableButton(false);
       return;
     }
     console.log('would sign up');
@@ -39,6 +41,7 @@ const Login = (props) => {
             console.log('error creating user db');
             console.log(err);
             props.setErrors([{ code: err.code, message: err.message }]);
+            setDisableButton(false);
           })
 
       })
@@ -46,6 +49,7 @@ const Login = (props) => {
         console.log('error create user auth');
         console.log(err);
         props.setErrors([{ code: err.code, message: err.message }]);
+        setDisableButton(false);
       })
   }
 
@@ -59,6 +63,7 @@ const Login = (props) => {
       .catch(err => {
         console.log(err);
         props.setErrors([{ code: err.code, message: err.message }]);
+        setDisableButton(false);
       })
   }
 
@@ -67,6 +72,7 @@ const Login = (props) => {
     console.log(email, password);
     console.log(actionLogin);
     if (email && password) {
+      setDisableButton(true);
       actionLogin ? handleLogin() : handleSignup();
     } else {
       props.setErrors([{ code: 404, message: 'Please make sure to fill in email and password' }])
@@ -80,9 +86,9 @@ const Login = (props) => {
         {props.displayError ? <ErrorDisplay errorMessages={props.errorMessages} clearErrors={props.clearErrors} /> : null}
         <form className="login-form" onSubmit={(e) => handleSubmit(e)}>
           <h2 className="login-title">{actionLogin ? "Login" : "Create Account"}</h2>
-          <InputGroup value={email} setValue={setEmail} type='email' label='Email' placeholder='example@email.com' auto_complete='email' />
+          <InputGroup value={email} setValue={setEmail} type='email' label='Email' id='email' placeholder='example@email.com' auto_complete='email' />
           {actionLogin ? null :
-            <InputGroup value={name} setValue={setName} type='text' label='Name' placeholder='John Doe' auto_complete='name' />
+            <InputGroup value={name} setValue={setName} type='text' label='Name' id='name' placeholder='John Doe' auto_complete='name' />
           }
           <InputGroup
             value={password}
@@ -90,10 +96,11 @@ const Login = (props) => {
             type='password'
             label='Password'
             placeholder='********'
+            id='password'
             auto_complete={actionLogin ? 'current-password' : 'new-password'}
           />
           <div className="login-button-holder">
-            <Button variant='contained' color='primary' type='submit'>{actionLogin ? "Login" : "Sign Up"}</Button>
+            <Button disabled={disableButton} variant='contained' color='primary' type='submit'>{actionLogin ? "Login" : "Sign Up"}</Button>
             <Button variant='text' color='primary' onClick={(e) => setActionLogin(!actionLogin)}>{actionLogin ? "Need to sign up?" : "Already a member?"}</Button>
           </div>
         </form>
