@@ -9,7 +9,7 @@ const InputGroup = (props) => {
     <div className="input-group">
       <TextField
         className='text-input'
-        id='email-input'
+        id={props.id}
         label={props.label}
         placeholder={props.placeholder}
         value={props.value}
