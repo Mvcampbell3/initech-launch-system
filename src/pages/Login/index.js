@@ -5,7 +5,8 @@ import { Redirect } from 'react-router-dom';
 import { FirebaseContext } from '../../utils/firebase';
 import InputGroup from '../../components/InputGroup';
 import Button from '@material-ui/core/Button';
-import ErrorDisplay from '../../components/ErrorDisplay'
+import ErrorDisplay from '../../components/ErrorDisplay';
+import Collapse from '@material-ui/core/Collapse';
 
 const Login = (props) => {
 
@@ -87,9 +88,9 @@ const Login = (props) => {
         <form className="login-form" onSubmit={(e) => handleSubmit(e)}>
           <h2 className="login-title">{actionLogin ? "Login" : "Create Account"}</h2>
           <InputGroup value={email} setValue={setEmail} type='email' label='Email' id='email' placeholder='example@email.com' auto_complete='email' />
-          {actionLogin ? null :
+          <Collapse in={!actionLogin}>
             <InputGroup value={name} setValue={setName} type='text' label='Name' id='name' placeholder='John Doe' auto_complete='name' />
-          }
+          </Collapse>
           <InputGroup
             value={password}
             setValue={setPassword}
