@@ -1,7 +1,6 @@
 import React from 'react';
 import './store.css';
-import Nav from '../../components/Nav/Nav';
-import NavDrop from '../../components/Nav/NavDrop'
+import TempNav from '../../components/Nav/TempNav'
 import ErrorDisplay from '../../components/ErrorDisplay';
 
 const Store = (props) => {
@@ -10,8 +9,7 @@ const Store = (props) => {
     <div className="store-container">
       {/* Each page we make will have to have an error display component */}
       {props.displayError ? <ErrorDisplay errorMessages={props.errorMessages} clearErrors={props.clearErrors} /> : null}
-      <Nav />
-      <NavDrop />
+    <TempNav />
     </div>
   );
 }
