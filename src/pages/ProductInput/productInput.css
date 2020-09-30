@@ -1,0 +1,29 @@
+.pi-container {
+  min-height: 100vh;
+  padding-top: 40px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.pi-wrapper {
+  width: 80%;
+  min-width: 340px;
+}
+
+.pi-title {
+  text-align: center;
+  margin-top: 0;
+}
+
+.pi-instructions {
+  max-width: 500px;
+  min-width: 300px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.font-30 {
+  font-size: 30px;
+}
