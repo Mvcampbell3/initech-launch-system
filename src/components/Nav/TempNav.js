@@ -19,15 +19,15 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const useStyles = makeStyles({
   root: {
-    color: 'white',
+    // color: 'white',
   },
   list: {
     width: 250,
-    color: 'white'
+    // color: 'white'
   },
   fullList: {
     width: 'auto',
-    color:'white'
+    // color:'white'
   },
 });
 
