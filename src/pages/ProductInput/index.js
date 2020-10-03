@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './productInput.css';
 import ErrorDisplay from '../../components/ErrorDisplay';
+import API from '../../utils/API';
+
 // Material UI Stuff
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -71,6 +73,13 @@ const ProductInput = (props) => {
         sendObj[item.place] = item.value
       })
       console.log(sendObj)
+      API.testAPI()
+        .then(response => {
+          console.log(response);
+        })
+        .catch(err => {
+          console.log(err);
+        })
     }
   }
 
