@@ -43,13 +43,14 @@ const ProductInput = (props) => {
     let ver_mission_type = missionType === '' ?
       { pass: false, msg: 'Please select mission type' } : { pass: true, value: missionType, place: 'mission_type' };
     let ver_prod_name = productName === '' ?
-      { pass: false, msg: 'Plase enter product name' } : { pass: true, value: productName, place: 'name' }
+      { pass: false, msg: 'Plase enter product name' } : { pass: true, value: productName.trim(), place: 'name' }
     let ver_prod_desc = productDescription === '' ?
-      { pass: false, msg: 'Please enter a description of the product' } : { pass: true, value: productDescription, place: 'description' };
+      { pass: false, msg: 'Please enter a description of the product' } :
+      { pass: true, value: productDescription.trim(), place: 'description' };
     let ver_price = price === '' ?
-      { pass: false, msg: 'Please enter a price for the product' } : { pass: true, value: price, place: 'price' };
+      { pass: false, msg: 'Please enter a price for the product' } : { pass: true, value: price.trim(), place: 'price' };
     let ver_img_path = imgPath === '' ?
-      { pass: false, msg: 'Please enter an image path for the product' } : { pass: true, value: imgPath, place: 'img_path' };
+      { pass: false, msg: 'Please enter an image path for the product' } : { pass: true, value: imgPath.trim(), place: 'img_path' };
     const verifyArr = [ver_prod_type, ver_flight_profile, ver_mission_type, ver_prod_name, ver_prod_desc, ver_price, ver_img_path];
     handleVerify(verifyArr)
   }
