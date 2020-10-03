@@ -1,0 +1,70 @@
+.pi-container {
+  min-height: 100vh;
+  padding-top: 16px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.pi-wrapper {
+  width: 80%;
+  min-width: 340px;
+  max-width: 1000px;
+}
+
+.pi-title {
+  text-align: center;
+  margin-top: 0;
+}
+
+.pi-instructions {
+  max-width: 500px;
+  min-width: 300px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.font-30 {
+  font-size: 30px;
+}
+
+.empty-pi-select {
+  height: 95px;
+  width: 256px;
+}
+
+.text-holder-pi {
+  margin: 8px;
+}
+
+.text-pi {
+  margin-bottom: 1em;
+  width: 300px;
+}
+
+.selects-holder-pi {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.select-pi {
+  margin-bottom: 1em;
+}
+
+.text-holder-tri {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 8px;
+}
+
+@media screen and (max-width:600px) {
+  .pi-wrapper {
+    padding-bottom: 100px;
+  }
+}

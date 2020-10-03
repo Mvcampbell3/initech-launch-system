@@ -6,6 +6,7 @@ import './App.css';
 import Landing from './pages/Landing';
 import Store from './pages/Store';
 import Login from './pages/Login';
+import ProductInput from './pages/ProductInput';
 
 // components
 
@@ -98,6 +99,13 @@ function App() {
           products={products}
         />} />
         <Route exact path='/login' render={props => <Login
+          {...props}
+          displayError={displayError}
+          errorMessages={errorMessages}
+          setErrors={setErrors}
+          clearErrors={clearErrors}
+        />} />
+        <Route exact path='/product' render={props => <ProductInput
           {...props}
           displayError={displayError}
           errorMessages={errorMessages}
