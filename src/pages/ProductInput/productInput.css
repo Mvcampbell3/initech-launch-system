@@ -1,6 +1,6 @@
 .pi-container {
   min-height: 100vh;
-  padding-top: 40px;
+  padding-top: 16px;
   background-color: white;
   display: flex;
   justify-content: center;
@@ -31,10 +31,16 @@
 
 .empty-pi-select {
   height: 95px;
+  width: 256px;
 }
 
 .text-holder-pi {
   margin: 8px;
+}
+
+.text-pi {
+  margin-bottom: 1em;
+  width: 300px;
 }
 
 .selects-holder-pi {
@@ -47,6 +53,14 @@
 
 .select-pi {
   margin-bottom: 1em;
+}
+
+.text-holder-tri {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 8px;
 }
 
 @media screen and (max-width:600px) {
