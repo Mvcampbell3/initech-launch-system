@@ -34,9 +34,14 @@ const ProductInput = (props) => {
   const [productDescription, setProductDescription] = useState('');
   const [price, setPrice] = useState('');
   const [imgPath, setImgPath] = useState('');
+  const [sending, setSending] = useState(false);
 
   const handleSubmit = e => {
     e.preventDefault();
+    if (sending) {
+      console.log('already have a send in the works');
+      return;
+    }
     console.log('form submitted');
     let ver_prod_type = productType === '' ?
       { pass: false, msg: 'Please select product type' } : { pass: true, value: productType, place: 'product_type' };
@@ -68,17 +73,22 @@ const ProductInput = (props) => {
       console.log(error_arr)
       props.setErrors(error_arr);
     } else {
+      setSending(true)
       let sendObj = {}
       verifyArr.forEach(item => {
         sendObj[item.place] = item.value
       })
       console.log(sendObj)
-      API.testAPI()
+      API.createProductFirebase(sendObj)
         .then(response => {
           console.log(response);
+          clearInputs();
+          setSending(false);
         })
         .catch(err => {
           console.log(err);
+          setSending(false);
+          props.setErrors([{ code: 'API error', err, message: 'There was a problem creating the product' }])
         })
     }
   }
@@ -94,6 +104,16 @@ const ProductInput = (props) => {
     setMissionType('');
     setProductName('');
     setProductDescription('');
+  }
+
+  const clearInputs = () => {
+    setMissionType('');
+    setFlightProfile('');
+    setProductType('');
+    setImgPath('');
+    setProductName('');
+    setProductDescription('');
+    setPrice('');
   }
 
   return (
@@ -204,8 +224,6 @@ const ProductInput = (props) => {
                 className='pi-text-input'
               ></InputGroup>
             </div>
-
-
 
             <div className="text-pi">
               <InputGroup

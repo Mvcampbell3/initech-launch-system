@@ -5,12 +5,19 @@ const TextArea = (props) => {
 
   const [focused, setFocused] = useState(false);
   const focusRef = useRef(null)
+  const _value = props.value;
 
   useEffect(() => {
     if (focused) {
       focusRef.current.focus();
     }
   }, [focused, focusRef])
+
+  useEffect(() => {
+    if (_value === '') {
+      focusRef.current.value = '';
+    }
+  }, [_value])
 
   const handleLabelClick = () => {
     if (!focused) {
