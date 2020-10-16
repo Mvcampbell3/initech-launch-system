@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import API from './utils/API';
 
 // pages
 import Landing from './pages/Landing';
@@ -45,6 +46,7 @@ function App() {
           console.log('has cart');
         } else {
           console.log('does not have cart');
+          user_db.currentCart = {};
         }
       }, (err) => {
         console.log('error')
@@ -55,21 +57,29 @@ function App() {
 
   useEffect(() => {
     const products_ref = db.ref('products');
-    products_ref.on('value', products_db_raw => {
-      const products_db = products_db_raw.val();
-      if (products_db) {
-        let products_arr = [];
-        const num_products = Object.keys(products_db).length;
-        for (let prod_id in products_db) {
-          const product = { ...products_db[prod_id], id: prod_id };
-          products_arr.push(product);
-          if (products_arr.length === num_products) {
-            console.log(products_arr);
-            setProducts(products_arr);
-          }
-        }
-      }
-    })
+    API.getProducts()
+      .then((products) => {
+        console.log(products);
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+
+    // products_ref.on('value', products_db_raw => {
+    //   const products_db = products_db_raw.val();
+    //   if (products_db) {
+    //     let products_arr = [];
+    //     const num_products = Object.keys(products_db).length;
+    //     for (let prod_id in products_db) {
+    //       const product = { ...products_db[prod_id], id: prod_id };
+    //       products_arr.push(product);
+    //       if (products_arr.length === num_products) {
+    //         console.log(products_arr);
+    //         setProducts(products_arr);
+    //       }
+    //     }
+    //   }
+    // })
   }, [db])
 
   const setErrors = (messages) => {
