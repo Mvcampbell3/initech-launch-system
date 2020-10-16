@@ -3,11 +3,20 @@ const admin = require('firebase-admin');
 admin.initializeApp();
 const db = admin.database();
 // Will bring in stripe after process.env set on firebase functions
-
+const stripe = require('stripe')
+  ('sk_test_51HNVjnJNdJBEfOmbNG8fGSUOSupNBGqF4zlfzfAV8iuZVsmmkeeJdHK1m6UJdvWpe8rQLEc2m5IlMreM9uYoiiLs00fIrw0FVb');
 
 module.exports = {
   getProductsTest: function(req, res) {
-    res.json({ ok: true, path: '/api/products/all' })
+    // res.json({ ok: true, path: '/api/products/all' })
+    stripe.products.list()
+      .then((products) => {
+        res.json({ ok: true, products, path: '/api/products/all' })
+      })
+      .catch((err) => {
+        console.log(err);
+        res.json({ ok: false, err })
+      })
   },
   createProductFirebase: function(req, res) {
     const db_ref = db.ref('products');

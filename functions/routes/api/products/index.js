@@ -6,6 +6,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/all', products_controller.getProductsTest);
-router.post('/new', products_controller.createProductFirebase)
+router.post('/new', products_controller.createProductFirebase);
+router.get("/list", products_controller.getProductsTest)
 
 module.exports = router;
