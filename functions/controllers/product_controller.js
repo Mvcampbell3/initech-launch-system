@@ -3,8 +3,7 @@ const admin = require('firebase-admin');
 admin.initializeApp();
 const db = admin.database();
 // Will bring in stripe after process.env set on firebase functions
-const stripe = require('stripe')
-  (process.env.STRIPE_KEY);
+const stripe = require('stripe')(process.env.stripe.key);
 
 module.exports = {
   getProductsTest: function(req, res) {
