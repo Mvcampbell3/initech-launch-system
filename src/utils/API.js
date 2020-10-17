@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'https://us-central1-initech-launch-system.cloudfunctions.net/server';
+const baseUrl = 'https://us-central1-initech-launch-system.cloudfunctions.net/server/api';
 
 export default {
   testAPI: () => {
